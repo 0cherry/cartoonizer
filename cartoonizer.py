@@ -131,17 +131,19 @@ def k_histogram(hist):
     return C
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('input', help='input image')
-    parser.add_argument('output', help='output cartoonized image')
-
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('input', help='input image')
+    # parser.add_argument('output', help='output cartoonized image')
+    #
+    # args = parser.parse_args()
 
     # image = Image.open(args.input)
-    image = cv2.imread(args.input)
+
+    # image = cv2.imread(args.input)
+    image = cv2.imread('.\\imgs\\input\\C2.jpg', 1)
     start_time = time.time()
-    output = cartoonize(image)
+    image = cartoonize(image)
     end_time = time.time()
     t = end_time-start_time
     print('time: {0}s'.format(t))
-    cv2.imwrite(args.output, output)
+    cv2.imwrite('.\\imgs\\Cherry_modified.jpg', image)
